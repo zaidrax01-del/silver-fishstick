@@ -172,6 +172,7 @@ footer p{font-size:9px;color:#7f918d;max-width:300px;text-align:right}
 .sect-head h2{font-family:var(--font-orbitron),sans-serif;font-size:clamp(24px,3vw,34px);
   font-weight:800;line-height:1.15;color:#fff;letter-spacing:-.5px}
 .sect-head p{margin-top:12px;color:#9bb0ab;font-size:15px}
+.sect-head p+p{margin-top:10px}
 .sect-alt{background:linear-gradient(#04080a,#061210)}
 
 /* ---------- SERVICE GRID ---------- */
@@ -219,13 +220,82 @@ footer p{font-size:9px;color:#7f918d;max-width:300px;text-align:right}
 .band-in p{color:#9bb0ab;font-size:15px;max-width:520px;margin:0 auto 26px}
 .band-in .cta{justify-content:center}
 
-/* ---------- ECOSYSTEM RESPONSIVE ---------- */
+/* ============================================================
+   TOKEN PAGES
+   ============================================================ */
+
+/* stat strip */
+.tstats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tstat{padding:22px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(#08120f,#050a09);text-align:center}
+.tstat b{display:block;font-family:var(--font-orbitron),sans-serif;font-size:clamp(20px,2.4vw,28px);
+  font-weight:800;color:var(--g);letter-spacing:-.5px;margin-bottom:6px}
+.tstat span{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#7f918d}
+
+/* key-value table */
+.kv{border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  background:linear-gradient(#08120f,#050a09)}
+.kv div{display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:16px 22px;border-bottom:1px solid #12201d;font-size:14px}
+.kv div:last-child{border-bottom:0}
+.kv span{color:var(--m)}
+.kv b{font-weight:600;color:#fff;text-align:right;
+  font-family:var(--font-rajdhani),sans-serif;font-size:15px;letter-spacing:.5px}
+
+/* contract address box */
+.code-box{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:18px 22px;border:1px solid #1e6a58;border-radius:14px;
+  background:rgba(25,240,176,.06)}
+.code-box code{flex:1;min-width:200px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:13px;color:var(--g);word-break:break-all;line-height:1.5}
+.code-box .btn{padding:9px 16px;font-size:11px}
+
+/* notice / warning */
+.warn{padding:18px 22px;border:1px solid #6a4a1e;border-radius:14px;
+  background:rgba(240,176,25,.06);font-size:13px;color:#dbe7e4;line-height:1.6}
+.warn h4{font-family:var(--font-rajdhani),sans-serif;font-size:14px;letter-spacing:1.2px;
+  text-transform:uppercase;color:#f0b019;margin-bottom:8px}
+.warn p+p{margin-top:10px}
+
+/* allocation bars */
+.alloc{display:grid;gap:16px;padding:26px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(#08120f,#050a09)}
+.alloc-row{display:grid;grid-template-columns:180px 1fr 70px;gap:16px;align-items:center;font-size:13px}
+.alloc-row>span{color:#cfdcd9}
+.alloc-bar{height:8px;border-radius:6px;background:#0d1c19;overflow:hidden}
+.alloc-bar i{display:block;height:100%;border-radius:6px;
+  background:linear-gradient(90deg,#19f0b0,#0fb88a);box-shadow:0 0 12px rgba(25,240,176,.4)}
+.alloc-row b{font-family:var(--font-rajdhani),sans-serif;font-size:15px;color:#fff;text-align:right}
+
+/* buy steps */
+.buy-steps{display:grid;gap:14px;counter-reset:bs}
+.buy-step{display:flex;gap:18px;padding:22px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(#08120f,#050a09)}
+.buy-step:before{counter-increment:bs;content:counter(bs);
+  flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:10px;
+  border:1px solid #1e5a4c;background:#08130f;color:var(--g);
+  font-family:var(--font-orbitron),sans-serif;font-weight:800;font-size:16px}
+.buy-step h4{font-family:var(--font-rajdhani),sans-serif;font-size:15px;letter-spacing:1.2px;
+  text-transform:uppercase;color:#fff;margin-bottom:8px}
+.buy-step p{font-size:13px;color:#9bb0ab;line-height:1.6}
+.buy-step p+p{margin-top:8px}
+.buy-step a{color:var(--g);text-decoration:underline;text-underline-offset:3px}
+
+/* ============================================================
+   RESPONSIVE (ecosystem + token)
+   ============================================================ */
 @media(max-width:1080px){
   .svcs,.svcs.cols-2{grid-template-columns:1fr 1fr}
   .steps,.steps.cols-3{grid-template-columns:1fr 1fr}
+  .tstats{grid-template-columns:1fr 1fr}
 }
 @media(max-width:620px){
   .svcs,.svcs.cols-2,.steps,.steps.cols-3{grid-template-columns:1fr}
   .page-hero{padding:48px 0 40px}
   .band-in{padding:40px 24px}
+  .kv div{flex-direction:column;align-items:flex-start;gap:4px;padding:14px 18px}
+  .kv b{text-align:left}
+  .alloc-row{grid-template-columns:1fr;gap:6px}
+  .alloc-row b{text-align:left}
 }
