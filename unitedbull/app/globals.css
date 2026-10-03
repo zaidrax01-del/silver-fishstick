@@ -99,6 +99,7 @@ h1 b{background:linear-gradient(#5dffd2,#0fb88a);-webkit-background-clip:text;ba
 .vid .cap b{color:var(--g)}
 .vid .cap small{display:block;font:500 8px var(--font-rajdhani),sans-serif;letter-spacing:2px;color:var(--g);text-transform:uppercase}
 
+/* ---------- FOOTER ---------- */
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:28px;padding-top:8px}
 footer p{font-size:9px;color:#7f918d;max-width:300px;text-align:right}
 
@@ -139,3 +140,85 @@ footer p{font-size:9px;color:#7f918d;max-width:300px;text-align:right}
   header .btn{display:none}
 }
 :focus-visible{outline:2px solid var(--g);outline-offset:3px}
+
+/* ============================================================
+   ECOSYSTEM PAGES
+   ============================================================ */
+
+/* ---------- PAGE HERO (inner pages) ---------- */
+.page-hero{position:relative;padding:72px 0 56px;border-bottom:1px solid var(--line);
+  background:radial-gradient(ellipse at 20% 0%,rgba(25,240,176,.13),transparent 60%),
+             linear-gradient(#050b10,#04080a)}
+.page-hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:repeating-linear-gradient(90deg,transparent 0 46px,rgba(25,240,176,.05) 46px 48px)}
+.page-hero .wrap{position:relative;z-index:1;max-width:860px}
+.page-hero h1{font-size:clamp(32px,4.6vw,58px);white-space:normal;margin:6px 0 16px}
+.page-hero .lead{color:#cfdcd9;font-size:16px;max-width:640px}
+
+.crumb{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;letter-spacing:1.5px;
+  text-transform:uppercase;color:#7f918d;margin-bottom:22px}
+.crumb a:hover{color:var(--g)}
+.crumb .sep{display:flex;gap:8px}
+.crumb b{color:var(--g);font-weight:600}
+
+/* ---------- SECTION ---------- */
+.sect{padding:64px 0}
+.sect-head{max-width:680px;margin-bottom:36px}
+.sect-head .kicker{font-family:var(--font-rajdhani),sans-serif;font-size:13px;
+  letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:10px}
+.sect-head h2{font-family:var(--font-orbitron),sans-serif;font-size:clamp(24px,3vw,34px);
+  font-weight:800;line-height:1.15;color:#fff;letter-spacing:-.5px}
+.sect-head p{margin-top:12px;color:#9bb0ab;font-size:15px}
+.sect-alt{background:linear-gradient(#04080a,#061210)}
+
+/* ---------- SERVICE GRID ---------- */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{display:flex;flex-direction:column;background:linear-gradient(#08120f,#050a09);
+  border:1px solid var(--line);border-radius:14px;padding:26px;
+  transition:border-color .2s,transform .2s}
+.svc:hover{border-color:#1e6a58;transform:translateY(-2px)}
+.svc i{display:grid;place-items:center;width:52px;height:52px;margin-bottom:18px;
+  border:1px solid #1e5a4c;border-radius:13px;background:#08130f;
+  box-shadow:inset 0 0 14px rgba(25,240,176,.12)}
+.svc i svg{width:24px;height:24px;stroke:var(--g);fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.svc h4{font-family:var(--font-rajdhani),sans-serif;font-size:16px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--g);margin-bottom:10px}
+.svc p{font-size:13px;color:#cfdcd9;line-height:1.6}
+.svc ul{list-style:none;display:grid;gap:9px;margin-top:16px;font-size:13px;color:#9bb0ab}
+.svc li{display:flex;gap:10px;line-height:1.5}
+.svc li:before{content:"";flex:none;width:5px;height:5px;margin-top:8px;border-radius:50%;
+  background:var(--g);box-shadow:0 0 7px rgba(25,240,176,.7)}
+
+/* ---------- STEPS ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.step{padding:26px 22px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(#08120f,#050a09)}
+.step:before{counter-increment:s;content:"0" counter(s);
+  font-family:var(--font-orbitron),sans-serif;font-weight:800;font-size:30px;
+  color:transparent;-webkit-background-clip:text;background-clip:text;
+  background-image:linear-gradient(#5dffd2,#0fb88a);display:block;margin-bottom:14px}
+.step h4{font-family:var(--font-rajdhani),sans-serif;font-size:15px;letter-spacing:1.2px;
+  text-transform:uppercase;color:#fff;margin-bottom:10px}
+.step p{font-size:13px;color:#9bb0ab;line-height:1.6}
+
+/* ---------- CTA BAND ---------- */
+.band{padding:0 0 72px}
+.band-in{position:relative;overflow:hidden;border:1px solid #1e6a58;border-radius:20px;
+  padding:56px 48px;text-align:center;
+  background:radial-gradient(ellipse at 50% 120%,rgba(25,240,176,.18),transparent 65%),#07100f}
+.band-in h3{font-family:var(--font-orbitron),sans-serif;font-size:clamp(22px,3vw,32px);
+  font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.5px}
+.band-in p{color:#9bb0ab;font-size:15px;max-width:520px;margin:0 auto 26px}
+.band-in .cta{justify-content:center}
+
+/* ---------- ECOSYSTEM RESPONSIVE ---------- */
+@media(max-width:1080px){
+  .svcs{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .svcs,.steps{grid-template-columns:1fr}
+  .page-hero{padding:48px 0 40px}
+  .band-in{padding:40px 24px}
+}
