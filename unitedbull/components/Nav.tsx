@@ -44,15 +44,6 @@ const NAV: Entry[] = [
     ],
   },
   {
-    label: 'Community',
-    items: [
-      { label: 'X',        href: 'https://x.com/' },
-      { label: 'Telegram', href: 'https://t.me/' },
-      { label: 'Discord',  href: 'https://discord.com/' },
-      { label: 'Events',   href: '/community/events' },
-    ],
-  },
-  {
     label: 'Contact',
     items: [
       { label: 'Contact Us',          href: '/contact' },
