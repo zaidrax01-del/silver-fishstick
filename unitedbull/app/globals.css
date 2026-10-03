@@ -21,15 +21,15 @@ header .wrap{display:flex;align-items:center;gap:20px;height:64px}
 .logo b{color:var(--g)}
 .logo svg{width:38px;height:38px}
 
-/* ---------- NAV ---------- */
-nav{margin:0 auto;font-size:11px;letter-spacing:1px;text-transform:uppercase}
-nav ul{list-style:none}
-nav>ul{display:flex;align-items:stretch;height:64px;gap:2px}
-nav li{position:relative}
-nav a,nav .navlink{display:flex;align-items:center;gap:7px;height:100%;padding:0 11px;color:#cfdcd9;
+/* ---------- NAV (scoped to header only) ---------- */
+header nav{margin:0 auto;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+header nav ul{list-style:none}
+header nav>ul{display:flex;align-items:stretch;height:64px;gap:2px}
+header nav li{position:relative}
+header nav a,header nav .navlink{display:flex;align-items:center;gap:7px;height:100%;padding:0 11px;color:#cfdcd9;
   border:0;border-bottom:2px solid transparent;background:none;font:inherit;cursor:pointer;white-space:nowrap;
   transition:color .18s,border-color .18s}
-nav a.on,nav a:hover,nav .navlink:hover,nav .dd.open>.navlink{color:var(--g);border-bottom-color:var(--g)}
+header nav a.on,header nav a:hover,header nav .navlink:hover,header nav .dd.open>.navlink{color:var(--g);border-bottom-color:var(--g)}
 .car{width:9px;height:9px;flex:none;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
 .dd:hover>.navlink .car,.dd.open>.navlink .car{transform:rotate(180deg)}
 
@@ -109,13 +109,13 @@ footer p{font-size:9px;color:#7f918d;max-width:300px;text-align:right}
   header .wrap{justify-content:space-between}
   .burger{display:grid}
 
-  nav{position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top,0px));bottom:0;margin:0;z-index:40;
+  header nav{position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top,0px));bottom:0;margin:0;z-index:40;
     padding:8px 24px calc(60px + env(safe-area-inset-bottom,0px));background:#04080a;
     border-top:1px solid var(--line);overflow-y:auto;display:none}
-  nav.open{display:block}
-  nav>ul{flex-direction:column;align-items:stretch;height:auto;gap:0}
-  nav li{position:static}
-  nav a,nav .navlink{height:auto;width:100%;justify-content:space-between;padding:16px 0;
+  header nav.open{display:block}
+  header nav>ul{flex-direction:column;align-items:stretch;height:auto;gap:0}
+  header nav li{position:static}
+  header nav a,header nav .navlink{height:auto;width:100%;justify-content:space-between;padding:16px 0;
     border-bottom:1px solid #0e2320;font-size:13px;letter-spacing:1.2px}
   .menu{position:static;min-width:0;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;
     opacity:1;visibility:visible;transform:none;display:none}
@@ -155,10 +155,13 @@ footer p{font-size:9px;color:#7f918d;max-width:300px;text-align:right}
 .page-hero h1{font-size:clamp(32px,4.6vw,58px);white-space:normal;margin:6px 0 16px}
 .page-hero .lead{color:#cfdcd9;font-size:16px;max-width:640px}
 
-.crumb{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;letter-spacing:1.5px;
-  text-transform:uppercase;color:#7f918d;margin-bottom:22px}
-.crumb a:hover{color:var(--g)}
-.crumb .sep{display:flex;gap:8px}
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:11px;letter-spacing:1.5px;
+  text-transform:uppercase;color:#7f918d;margin-bottom:22px;
+  position:static;height:auto;padding:0;background:none;border:0;overflow:visible}
+.crumb a{display:inline;height:auto;width:auto;padding:0;border:0;color:inherit;
+  font-size:inherit;letter-spacing:inherit}
+.crumb a:hover{color:var(--g);border:0}
+.crumb .sep{display:flex;gap:8px;align-items:center}
 .crumb b{color:var(--g);font-weight:600}
 
 /* ---------- SECTION ---------- */
@@ -202,6 +205,10 @@ footer p{font-size:9px;color:#7f918d;max-width:300px;text-align:right}
   text-transform:uppercase;color:#fff;margin-bottom:10px}
 .step p{font-size:13px;color:#9bb0ab;line-height:1.6}
 
+/* column-count modifiers */
+.steps.cols-3{grid-template-columns:repeat(3,1fr)}
+.svcs.cols-2{grid-template-columns:repeat(2,1fr)}
+
 /* ---------- CTA BAND ---------- */
 .band{padding:0 0 72px}
 .band-in{position:relative;overflow:hidden;border:1px solid #1e6a58;border-radius:20px;
@@ -214,11 +221,11 @@ footer p{font-size:9px;color:#7f918d;max-width:300px;text-align:right}
 
 /* ---------- ECOSYSTEM RESPONSIVE ---------- */
 @media(max-width:1080px){
-  .svcs{grid-template-columns:1fr 1fr}
-  .steps{grid-template-columns:1fr 1fr}
+  .svcs,.svcs.cols-2{grid-template-columns:1fr 1fr}
+  .steps,.steps.cols-3{grid-template-columns:1fr 1fr}
 }
 @media(max-width:620px){
-  .svcs,.steps{grid-template-columns:1fr}
+  .svcs,.svcs.cols-2,.steps,.steps.cols-3{grid-template-columns:1fr}
   .page-hero{padding:48px 0 40px}
   .band-in{padding:40px 24px}
 }
